@@ -6,6 +6,10 @@ headphonectl
 ------------
 Allows the use of the special keys on the Logitech G930 wireless headset in Linux. It has modules for controlling VLC, a UPnP media server, and a live audio stream from another sound card.
 
+LaserTag5000
+------------
+A proof of concept Android application. It is designed to interface with a peice of custom hardware over the Bluetooth SPP protocol, and a CouchDB database server. The Bluetooth interface to the hardware works. However, the server side databse has yet to be fully implemented. This is the first real project in Java that I have ever done.
+
 NetFS
 -----
 A network file system using the FUSE file system layer. It's designed to mount network file system (SMB, NFS, etc..) to a folder in a users home directory.

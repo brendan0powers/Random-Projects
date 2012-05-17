@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:orientation="vertical" android:scrollbars="vertical" android:isScrollContainer="true">
+    <ScrollView android:layout_width="fill_parent" android:id="@+id/scrollView1" android:layout_height="wrap_content">
+        <LinearLayout android:id="@+id/linearLayout3" android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical">
+		    <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView3" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/app_name"></TextView>
+		    <ImageView android:id="@+id/imageView1" android:src="@drawable/lasers" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scaleType="centerCrop"></ImageView>
+		    <TextView android:id="@+id/textView1" android:layout_height="wrap_content" android:text="@string/username" android:layout_width="wrap_content"></TextView>
+		    <LinearLayout android:layout_width="fill_parent" android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:orientation="vertical">
+		        <EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:hint="User Name" android:id="@+id/login_username">
+		            <requestFocus></requestFocus>
+		        </EditText>
+		        <TextView android:id="@+id/textView2" android:layout_height="wrap_content" android:text="@string/password" android:layout_width="wrap_content"></TextView>
+		        <EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:inputType="textPassword" android:hint="Password" android:id="@+id/login_password"></EditText>
+		    </LinearLayout>
+		    
+		    <LinearLayout android:layout_width="fill_parent" android:id="@+id/linearLayout2" android:layout_height="wrap_content" android:baselineAligned="false">
+		    	<CheckBox android:layout_height="wrap_content" android:layout_gravity="fill_horizontal" android:text="@string/showpassword" android:id="@+id/logon_showpassword" android:layout_width="wrap_content" android:layout_weight="1"></CheckBox>
+		    	<Button android:layout_gravity="fill" android:text="@string/login" android:id="@+id/logon_button" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_weight="0"></Button>
+		    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

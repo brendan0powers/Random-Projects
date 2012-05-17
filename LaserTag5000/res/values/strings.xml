@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Laser Tag 5000!</string>
+    <string name="login">Login</string>
+    <string name="showpassword">Show Password</string>
+    <string name="username">User Name</string>
+    <string name="password">Password</string>
+    <string name="stopservice">Stop Service</string>
+    <string name="ServiceString">LaserTag 5000 is running!</string>
+    <string name="url">http://brendan0powers.iriscouch.com/lasertag/</string>
+    <string name="commandhint">Command...</string>
+    <string name="health">Health</string>
+    <string name="ammo">Ammo</string>
+    <string name="getitem">Get Item</string>
+</resources>
