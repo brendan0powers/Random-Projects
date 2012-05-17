@@ -1,0 +1,16 @@
+MyOverlays/OgreQt
+{
+    zorder 200
+
+    container Panel(MyOverlayElements/QtPanel)
+    {
+        // Center it horzontally, put it at the top
+        left 0.0
+        top 0.0
+        width 1.0
+        height 1.0
+        material Textures/OgreQt
+
+    }
+
+}

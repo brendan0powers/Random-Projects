@@ -1,0 +1,17 @@
+material Textures/Crosshair
+{
+        technique
+        {
+                pass
+                {
+                        ambient 0.2 0.2 0.2
+			lighting off
+		        scene_blend alpha_blend
+                        texture_unit
+                        {
+                                texture crosshair.png
+                        }
+                }
+        }
+}
+

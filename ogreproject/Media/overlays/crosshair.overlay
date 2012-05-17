@@ -1,0 +1,16 @@
+MyOverlays/ANewOverlay
+{
+    zorder 200
+
+    container Panel(MyOverlayElements/TestPanel)
+    {
+        // Center it horzontally, put it at the top
+        left 0.475
+        top 0.475
+        width 0.05
+        height 0.05
+        material Textures/Crosshair
+
+    }
+
+}
