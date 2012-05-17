@@ -1,0 +1,65 @@
+<ui version="4.0" >
+ <class>LogUi</class>
+ <widget class="QWidget" name="LogUi" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" >
+   <item>
+    <widget class="QTextBrowser" name="TextView" >
+     <property name="tabChangesFocus" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout" >
+     <item>
+      <widget class="CommandEdit" name="TextEntry" />
+     </item>
+     <item>
+      <widget class="QPushButton" name="SendButton" >
+       <property name="text" >
+        <string>Send</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CommandEdit</class>
+   <extends>QLineEdit</extends>
+   <header>commandedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>TextEntry</sender>
+   <signal>returnPressed()</signal>
+   <receiver>SendButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>149</x>
+     <y>272</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>364</x>
+     <y>271</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -8,6 +8,8 @@ Allows the use of the special keys on the Logitech G930 wireless headset in Linu
 
 QxtIrc
 ------
-A IRC client library and bot framework writen using the Qt library. This project was a collaboration with several people. It was designed to be simple to use, and several interesting IRC bots were created using it.
+An IRC client library and bot framework writen using the Qt library. This project was a collaboration with several people. It was designed to be simple to use, and several interesting IRC bots were created using it.
 
-
+MobileIRC
+------
+A Windows Mobile IRC client writen using the QxtIrc library. It worked fairly well. However, it only joined one channel.
