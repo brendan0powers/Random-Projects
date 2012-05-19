@@ -18,6 +18,10 @@ ogreproject
 -----------
 This project uses the Ogre graphics library, the ODE phycics library, the Torque network library and the Qt graphics library. It was an attempt to create a 3D multi player game with a physics element. The project got to the point where it could load a Quake 3 map with lighting and textures, and had simple client side physics. You could connect more than one client to the server, and see where the other players were in the map. There was also a Qt GUI overlay that let you do things like use a WebKit browser in game. I was responsible for writing the client side, physics, and UI code. Chris Vickery wrote the Torque library integration and server code.
 
+opencvtest
+----------
+An test application for the OpenCV computer vision library. Among ather things, this application will capture images from two cameras and search the images for a face. Once a face has been found in both images, it uses the relative positions of the faces in each image to calculate the face's distance from the camera. The application also contains code to test some other algorithms, such as pattern matching, and edge detection.
+
 QxtIrc
 ------
 An IRC client library and bot framework writen using the Qt library. This project was a collaboration with several people. It was designed to be simple to use, and several interesting IRC bots were created using it.
