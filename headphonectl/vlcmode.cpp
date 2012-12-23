@@ -84,8 +84,8 @@ void VLCMode::left() //69
 
 void VLCMode::middle() //68
 {
-	KeyDown(QX11Info::display(), XK_space, XK_Alt_L);
-	KeyUp(QX11Info::display(), XK_space, XK_Alt_L);
+	KeyDown(QX11Info::display(), XK_P, XK_Alt_L);
+	KeyUp(QX11Info::display(), XK_P, XK_Alt_L);
 }
 
 void VLCMode::right() //70

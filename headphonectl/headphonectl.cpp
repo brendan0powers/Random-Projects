@@ -7,16 +7,24 @@
 #include <QApplication>
 #include <QKeyEvent>
 #include <QDebug>
+#include <QAbstractEventDispatcher>
+#include <QX11Info>
+#include <X11/Xlib.h>
 
 #define KEY_LEFT 171
 #define KEY_MIDDLE 172
 #define KEY_RIGHT 173
 
+headphonectl *headphonectl::_instance = NULL;
+
 headphonectl::headphonectl()
 : QSystemTrayIcon(QPixmap("/usr/share/icons/oxygen/22x22/devices/audio-headset.png"))
 {
 	show();
-	qApp->installEventFilter(this);
+	_instance = this;
+	//qApp->installEventFilter(this);
+
+	QAbstractEventDispatcher::instance()->setEventFilter(eventFilter);
 
 	_left = false;
 	_middle = false;
@@ -35,18 +43,22 @@ void headphonectl::addMode(QString name, Mode* mode)
 }
 
 
-bool headphonectl::eventFilter(QObject* obj, QEvent* event)
+bool headphonectl::eventFilter(void *message)
 {
-	if((event->type() == QEvent::KeyPress) || (event->type() == QEvent::KeyRelease))
+	return _instance->instanceEventFilter(message);
+}
+
+bool headphonectl::instanceEventFilter(void *message)
+{
+	XEvent* event = static_cast<XEvent*>(message);
+	XKeyEvent* keyevent = (XKeyEvent*) event;
+	if((event->type == KeyPress) || (event->type == KeyRelease))
 	{
-		QKeyEvent *keyevent = static_cast<QKeyEvent *>(event);
-		if(keyevent->isAutoRepeat()) return(false);
+		qDebug() << "Key: " << keyevent->keycode;
 
-		//qDebug() << keyevent->nativeScanCode();
-
-		if(keyevent->nativeScanCode() == KEY_LEFT)
+		if(keyevent->keycode == KEY_LEFT)
 		{
-			if(event->type() == QEvent::KeyPress)
+			if(event->type == KeyPress)
 			{
 				_left = true;
 				checkModeChange();
@@ -57,9 +69,9 @@ bool headphonectl::eventFilter(QObject* obj, QEvent* event)
 				_left = false;
 			}
 		}
-		else if(keyevent->nativeScanCode() == KEY_MIDDLE)
+		else if(keyevent->keycode == KEY_MIDDLE)
 		{
-			if(event->type() == QEvent::KeyPress)
+			if(event->type == KeyPress)
 			{
 				_middle = true;
 			}
@@ -69,9 +81,9 @@ bool headphonectl::eventFilter(QObject* obj, QEvent* event)
 				_middle = false;
 			}
 		}
-		else if(keyevent->nativeScanCode() == KEY_RIGHT)
+		else if(keyevent->keycode == KEY_RIGHT)
 		{
-			if(event->type() == QEvent::KeyPress)
+			if(event->type == KeyPress)
 			{
 				_right = true;
 				checkModeChange();
@@ -82,10 +94,6 @@ bool headphonectl::eventFilter(QObject* obj, QEvent* event)
 				_right = false;
 			}
 		}
-	}
-	else
-	{
-		return QObject::eventFilter(obj, event);
 	}
 }
 
@@ -122,6 +130,7 @@ void headphonectl::changeMode()
 	if(_curmode >= _modes.size()) _curmode = 0;
 
 	QString name = _modes.keys()[_curmode];
+	qDebug() << qPrintable(QString("espeak -v en '%1' --stdout | aplay -- &").arg(name));
 	system(qPrintable(QString("espeak -v en '%1' --stdout | aplay -- &").arg(name)));
 
 	_mode = _modes[name];

@@ -13,7 +13,8 @@ public:
     headphonectl();
     virtual ~headphonectl();
 
-	virtual bool eventFilter(QObject *obj, QEvent *event);
+	static bool eventFilter(void *message);
+	bool instanceEventFilter(void *message);
 	void addMode(QString name, Mode *mode);
 	
 private slots:
@@ -32,6 +33,8 @@ private:
 	int _curmode;
 	QHash<QString, Mode *> _modes;
 	Mode *_mode;
+
+	static headphonectl *_instance;
 	
 };
 
