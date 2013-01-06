@@ -78,19 +78,16 @@ static void KeyUp (Display * disp, KeySym keysym, KeySym modsym)
 
 void VLCMode::left() //69
 {
-	KeyDown(QX11Info::display(), XK_X, XK_Alt_L);
-	KeyUp(QX11Info::display(), XK_X, XK_Alt_L);
+	system("qdbus org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous");
 }
 
 void VLCMode::middle() //68
 {
-	KeyDown(QX11Info::display(), XK_P, XK_Alt_L);
-	KeyUp(QX11Info::display(), XK_P, XK_Alt_L);
+	 system("qdbus org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause");
 }
 
 void VLCMode::right() //70
 {
-	KeyDown(QX11Info::display(), XK_Z, XK_Alt_L);
-	KeyUp(QX11Info::display(), XK_Z, XK_Alt_L);
+	 system("qdbus org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next");
 }
 

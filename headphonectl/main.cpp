@@ -4,6 +4,7 @@
 #include "vlcmode.h"
 #include "radiomode.h"
 #include "media.h"
+#include "spotifymode.h"
 #include <QX11Info>
 #include <X11/Xlib.h>
 
@@ -29,6 +30,7 @@ int main(int argc, char** argv)
 	foo.addMode("VLC",new VLCMode());
 	foo.addMode("Radio",new RadioMode());
 	foo.addMode("Media",new Media());
+	foo.addMode("Spotify", new SpotifyMode());
 	foo.addMode("Null",new NullMode());
 	
     return app.exec();

@@ -4,7 +4,7 @@ find_package(Qt4 REQUIRED)
 
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
-set(headphonectl_SRCS media.cpp radiomode.cpp nullmode.cpp vlcmode.cpp mode.cpp headphonectl.cpp main.cpp)
+set(headphonectl_SRCS media.cpp radiomode.cpp nullmode.cpp vlcmode.cpp mode.cpp headphonectl.cpp main.cpp spotifymode.cpp)
 qt4_automoc(${headphonectl_SRCS})
 add_executable(headphonectl ${headphonectl_SRCS})
 target_link_libraries(headphonectl ${QT_QTCORE_LIBRARY})
